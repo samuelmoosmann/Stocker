@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 class StockTableViewController: UITableViewController {
 
+    var items: [NSManagedObject] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +22,41 @@ class StockTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+        
+        // Setup
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Item", in: managedContext)!
+        
+        let item = NSManagedObject(entity: entity, insertInto: managedContext)
+        
+        item.setValue("Testobjekt", forKeyPath: "name")
+        
+        do {
+            try managedContext.save()
+            items.append(item)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Item")
+        
+        do {
+            items = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -27,25 +65,20 @@ class StockTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return items.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "stockTableViewCell", for: indexPath) as! StockTableViewCell
+        let item = items[indexPath.row]
+        cell.itemNameLabel.text = item.value(forKey: "name") as? String
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
