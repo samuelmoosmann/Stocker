@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Stocker
+
+  Created by Samuel Moosmann on 24/06/2017.
+  Copyright © 2017 Samuel Moosmann. All rights reserved.
+*/
+
+"unitMass" = "Mass";
+"unitLength" = "Length";
+"unitVolume" = "Volume";

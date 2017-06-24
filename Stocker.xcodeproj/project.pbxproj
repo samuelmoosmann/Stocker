@@ -12,6 +12,12 @@
 		BB35697C1EFC543000B083AB /* UniversalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35697B1EFC543000B083AB /* UniversalSplitViewController.swift */; };
 		BB35697F1EFC589C00B083AB /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35697E1EFC589C00B083AB /* ShoppingListTableViewCell.swift */; };
 		BB673F0E1EFADD6900333A90 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB673F0D1EFADD6900333A90 /* StockTableViewCell.swift */; };
+		BB761B221EFD0A0600B9B832 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB761B211EFD0A0600B9B832 /* NotificationCenter.framework */; };
+		BB761B251EFD0A0600B9B832 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB761B241EFD0A0600B9B832 /* TodayViewController.swift */; };
+		BB761B281EFD0A0600B9B832 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB761B261EFD0A0600B9B832 /* MainInterface.storyboard */; };
+		BB761B2C1EFD0A0600B9B832 /* Items Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = BB761B1F1EFD0A0600B9B832 /* Items Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BB761B321EFD0E5A00B9B832 /* MeasurementUnitTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB761B311EFD0E5A00B9B832 /* MeasurementUnitTableViewController.swift */; };
+		BB761B3D1EFD1D0C00B9B832 /* MeasurementUnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB761B3C1EFD1D0C00B9B832 /* MeasurementUnitTableViewCell.swift */; };
 		BBB8752C1EFADA6600E64BD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB8752B1EFADA6600E64BD7 /* AppDelegate.swift */; };
 		BBB875311EFADA6600E64BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBB8752F1EFADA6600E64BD7 /* Main.storyboard */; };
 		BBB875331EFADA6600E64BD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBB875321EFADA6600E64BD7 /* Assets.xcassets */; };
@@ -20,7 +26,33 @@
 		BBB875401EFADC5700E64BD7 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB8753F1EFADC5700E64BD7 /* StockDetailViewController.swift */; };
 		BBB875421EFADC7B00E64BD7 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB875411EFADC7B00E64BD7 /* ShoppingListTableViewController.swift */; };
 		BBB875441EFADCD900E64BD7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BBB875431EFADCD900E64BD7 /* README.md */; };
+		BBDB0ABB1EFE628700C2EAEA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBDB0ABD1EFE628700C2EAEA /* Localizable.strings */; };
+		BBDB0AC01EFE657000C2EAEA /* MeasurementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDB0ABF1EFE657000C2EAEA /* MeasurementType.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BB761B2A1EFD0A0600B9B832 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBB875201EFADA6600E64BD7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB761B1E1EFD0A0600B9B832;
+			remoteInfo = "Items Widget";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB761B301EFD0A0600B9B832 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BB761B2C1EFD0A0600B9B832 /* Items Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BB3569751EFBF2B300B083AB /* Stocker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stocker.xcdatamodel; sourceTree = "<group>"; };
@@ -28,6 +60,15 @@
 		BB35697B1EFC543000B083AB /* UniversalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalSplitViewController.swift; sourceTree = "<group>"; };
 		BB35697E1EFC589C00B083AB /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		BB673F0D1EFADD6900333A90 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
+		BB761B1F1EFD0A0600B9B832 /* Items Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Items Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB761B211EFD0A0600B9B832 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		BB761B241EFD0A0600B9B832 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		BB761B271EFD0A0600B9B832 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		BB761B291EFD0A0600B9B832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB761B311EFD0E5A00B9B832 /* MeasurementUnitTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementUnitTableViewController.swift; sourceTree = "<group>"; };
+		BB761B361EFD154B00B9B832 /* Items Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Items Widget.entitlements"; sourceTree = "<group>"; };
+		BB761B391EFD15E600B9B832 /* Stocker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Stocker.entitlements; sourceTree = "<group>"; };
+		BB761B3C1EFD1D0C00B9B832 /* MeasurementUnitTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementUnitTableViewCell.swift; sourceTree = "<group>"; };
 		BBB875281EFADA6600E64BD7 /* Stocker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stocker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBB8752B1EFADA6600E64BD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBB875301EFADA6600E64BD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,9 +79,23 @@
 		BBB8753F1EFADC5700E64BD7 /* StockDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockDetailViewController.swift; sourceTree = "<group>"; };
 		BBB875411EFADC7B00E64BD7 /* ShoppingListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewController.swift; sourceTree = "<group>"; };
 		BBB875431EFADCD900E64BD7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BBDB0AB61EFE618B00C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		BBDB0AB71EFE618B00C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BBDB0AB81EFE618B00C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
+		BBDB0ABC1EFE628700C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BBDB0ABE1EFE629500C2EAEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BBDB0ABF1EFE657000C2EAEA /* MeasurementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BB761B1C1EFD0A0600B9B832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB761B221EFD0A0600B9B832 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBB875251EFADA6600E64BD7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,20 +123,67 @@
 			name = "Shopping List";
 			sourceTree = "<group>";
 		};
-		BB673F0F1EFADD6E00333A90 /* StockTable */ = {
+		BB3F3F411EFC97AA00913678 /* Stock and Item Detail */ = {
+			isa = PBXGroup;
+			children = (
+				BBB8753F1EFADC5700E64BD7 /* StockDetailViewController.swift */,
+			);
+			name = "Stock and Item Detail";
+			sourceTree = "<group>";
+		};
+		BB673F0F1EFADD6E00333A90 /* Stock Table */ = {
 			isa = PBXGroup;
 			children = (
 				BBB8753D1EFADC1700E64BD7 /* StockTableViewController.swift */,
 				BB673F0D1EFADD6900333A90 /* StockTableViewCell.swift */,
 			);
-			name = StockTable;
+			name = "Stock Table";
+			sourceTree = "<group>";
+		};
+		BB6E46971EFE7702008539A4 /* Data Types */ = {
+			isa = PBXGroup;
+			children = (
+				BBDB0ABF1EFE657000C2EAEA /* MeasurementType.swift */,
+			);
+			name = "Data Types";
+			sourceTree = "<group>";
+		};
+		BB761B201EFD0A0600B9B832 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB761B211EFD0A0600B9B832 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB761B231EFD0A0600B9B832 /* Items Widget */ = {
+			isa = PBXGroup;
+			children = (
+				BB761B361EFD154B00B9B832 /* Items Widget.entitlements */,
+				BB761B241EFD0A0600B9B832 /* TodayViewController.swift */,
+				BB761B261EFD0A0600B9B832 /* MainInterface.storyboard */,
+				BB761B291EFD0A0600B9B832 /* Info.plist */,
+			);
+			path = "Items Widget";
+			sourceTree = "<group>";
+		};
+		BB761B331EFD0E6000B9B832 /* Utility Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB761B311EFD0E5A00B9B832 /* MeasurementUnitTableViewController.swift */,
+				BB761B3C1EFD1D0C00B9B832 /* MeasurementUnitTableViewCell.swift */,
+			);
+			name = "Utility Views";
 			sourceTree = "<group>";
 		};
 		BBB8751F1EFADA6600E64BD7 = {
 			isa = PBXGroup;
 			children = (
+				BBDB0ABD1EFE628700C2EAEA /* Localizable.strings */,
 				BBB875431EFADCD900E64BD7 /* README.md */,
 				BBB8752A1EFADA6600E64BD7 /* Stocker */,
+				BB761B231EFD0A0600B9B832 /* Items Widget */,
+				BB761B201EFD0A0600B9B832 /* Frameworks */,
 				BBB875291EFADA6600E64BD7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				BBB875281EFADA6600E64BD7 /* Stocker.app */,
+				BB761B1F1EFD0A0600B9B832 /* Items Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,14 +200,17 @@
 		BBB8752A1EFADA6600E64BD7 /* Stocker */ = {
 			isa = PBXGroup;
 			children = (
+				BB6E46971EFE7702008539A4 /* Data Types */,
+				BB761B391EFD15E600B9B832 /* Stocker.entitlements */,
+				BB761B331EFD0E6000B9B832 /* Utility Views */,
 				BB35697A1EFC541500B083AB /* Utilities */,
-				BB673F0F1EFADD6E00333A90 /* StockTable */,
+				BB673F0F1EFADD6E00333A90 /* Stock Table */,
+				BB3F3F411EFC97AA00913678 /* Stock and Item Detail */,
 				BB35697D1EFC587500B083AB /* Shopping List */,
 				BBB8752B1EFADA6600E64BD7 /* AppDelegate.swift */,
 				BB3569741EFBF2B300B083AB /* Stocker.xcdatamodeld */,
 				BBB8752F1EFADA6600E64BD7 /* Main.storyboard */,
 				BB3569781EFC4F8800B083AB /* Settings.bundle */,
-				BBB8753F1EFADC5700E64BD7 /* StockDetailViewController.swift */,
 				BBB875321EFADA6600E64BD7 /* Assets.xcassets */,
 				BBB875341EFADA6600E64BD7 /* LaunchScreen.storyboard */,
 				BBB875371EFADA6600E64BD7 /* Info.plist */,
@@ -115,6 +221,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BB761B1E1EFD0A0600B9B832 /* Items Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB761B2F1EFD0A0600B9B832 /* Build configuration list for PBXNativeTarget "Items Widget" */;
+			buildPhases = (
+				BB761B1B1EFD0A0600B9B832 /* Sources */,
+				BB761B1C1EFD0A0600B9B832 /* Frameworks */,
+				BB761B1D1EFD0A0600B9B832 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Items Widget";
+			productName = "Items Widget";
+			productReference = BB761B1F1EFD0A0600B9B832 /* Items Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		BBB875271EFADA6600E64BD7 /* Stocker */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBB8753A1EFADA6600E64BD7 /* Build configuration list for PBXNativeTarget "Stocker" */;
@@ -122,10 +245,12 @@
 				BBB875241EFADA6600E64BD7 /* Sources */,
 				BBB875251EFADA6600E64BD7 /* Frameworks */,
 				BBB875261EFADA6600E64BD7 /* Resources */,
+				BB761B301EFD0A0600B9B832 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BB761B2B1EFD0A0600B9B832 /* PBXTargetDependency */,
 			);
 			name = Stocker;
 			productName = Stocker;
@@ -142,10 +267,31 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Samuel Moosmann";
 				TargetAttributes = {
+					BB761B1E1EFD0A0600B9B832 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = FW5K9MYH66;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
+					};
 					BBB875271EFADA6600E64BD7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = FW5K9MYH66;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -163,15 +309,25 @@
 			projectRoot = "";
 			targets = (
 				BBB875271EFADA6600E64BD7 /* Stocker */,
+				BB761B1E1EFD0A0600B9B832 /* Items Widget */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BB761B1D1EFD0A0600B9B832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB761B281EFD0A0600B9B832 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBB875261EFADA6600E64BD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBDB0ABB1EFE628700C2EAEA /* Localizable.strings in Resources */,
 				BB3569791EFC4F8800B083AB /* Settings.bundle in Resources */,
 				BBB875361EFADA6600E64BD7 /* LaunchScreen.storyboard in Resources */,
 				BBB875331EFADA6600E64BD7 /* Assets.xcassets in Resources */,
@@ -182,29 +338,58 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BB761B1B1EFD0A0600B9B832 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB761B251EFD0A0600B9B832 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BBB875241EFADA6600E64BD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BBB875401EFADC5700E64BD7 /* StockDetailViewController.swift in Sources */,
 				BBB8753E1EFADC1700E64BD7 /* StockTableViewController.swift in Sources */,
+				BBDB0AC01EFE657000C2EAEA /* MeasurementType.swift in Sources */,
 				BB3569771EFC131200B083AB /* Stocker.xcdatamodeld in Sources */,
 				BBB875441EFADCD900E64BD7 /* README.md in Sources */,
+				BB761B321EFD0E5A00B9B832 /* MeasurementUnitTableViewController.swift in Sources */,
 				BBB8752C1EFADA6600E64BD7 /* AppDelegate.swift in Sources */,
 				BB35697C1EFC543000B083AB /* UniversalSplitViewController.swift in Sources */,
 				BB35697F1EFC589C00B083AB /* ShoppingListTableViewCell.swift in Sources */,
 				BB673F0E1EFADD6900333A90 /* StockTableViewCell.swift in Sources */,
+				BB761B3D1EFD1D0C00B9B832 /* MeasurementUnitTableViewCell.swift in Sources */,
 				BBB875421EFADC7B00E64BD7 /* ShoppingListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		BB761B2B1EFD0A0600B9B832 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BB761B1E1EFD0A0600B9B832 /* Items Widget */;
+			targetProxy = BB761B2A1EFD0A0600B9B832 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		BB761B261EFD0A0600B9B832 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB761B271EFD0A0600B9B832 /* Base */,
+				BBDB0AB81EFE618B00C2EAEA /* de */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		BBB8752F1EFADA6600E64BD7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				BBB875301EFADA6600E64BD7 /* Base */,
+				BBDB0AB61EFE618B00C2EAEA /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -213,17 +398,57 @@
 			isa = PBXVariantGroup;
 			children = (
 				BBB875351EFADA6600E64BD7 /* Base */,
+				BBDB0AB71EFE618B00C2EAEA /* de */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BBDB0ABD1EFE628700C2EAEA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBDB0ABC1EFE628700C2EAEA /* de */,
+				BBDB0ABE1EFE629500C2EAEA /* Base */,
+			);
+			name = Localizable.strings;
+			path = Stocker;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		BB761B2D1EFD0A0600B9B832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Items Widget/Items Widget.entitlements";
+				DEVELOPMENT_TEAM = FW5K9MYH66;
+				INFOPLIST_FILE = "Items Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.samuelmoosmann.Stocker.Items-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BB761B2E1EFD0A0600B9B832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Items Widget/Items Widget.entitlements";
+				DEVELOPMENT_TEAM = FW5K9MYH66;
+				INFOPLIST_FILE = "Items Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "at.samuelmoosmann.Stocker.Items-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		BBB875381EFADA6600E64BD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -275,6 +500,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -318,7 +544,9 @@
 		BBB8753B1EFADA6600E64BD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Stocker/Stocker.entitlements;
 				DEVELOPMENT_TEAM = FW5K9MYH66;
 				INFOPLIST_FILE = Stocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -331,7 +559,9 @@
 		BBB8753C1EFADA6600E64BD7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Stocker/Stocker.entitlements;
 				DEVELOPMENT_TEAM = FW5K9MYH66;
 				INFOPLIST_FILE = Stocker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -344,6 +574,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BB761B2F1EFD0A0600B9B832 /* Build configuration list for PBXNativeTarget "Items Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB761B2D1EFD0A0600B9B832 /* Debug */,
+				BB761B2E1EFD0A0600B9B832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BBB875231EFADA6600E64BD7 /* Build configuration list for PBXProject "Stocker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

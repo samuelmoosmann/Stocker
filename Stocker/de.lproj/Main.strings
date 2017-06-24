@@ -1,0 +1,51 @@
+
+/* Class = "UILabel"; text = "kg"; ObjectID = "2yX-dI-wMJ"; */
+"2yX-dI-wMJ.text" = "kg";
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "3Wf-1Y-Mu5"; */
+"3Wf-1Y-Mu5.text" = "Info";
+
+/* Class = "UITabBarItem"; title = "Shopping List"; ObjectID = "84S-sQ-aDq"; */
+"84S-sQ-aDq.title" = "Einkaufsliste";
+
+/* Class = "UILabel"; text = "10 kg"; ObjectID = "C0U-EF-XeH"; */
+"C0U-EF-XeH.text" = "10 kg";
+
+/* Class = "UILabel"; text = "Erdbeeren"; ObjectID = "GIH-sH-bx1"; */
+"GIH-sH-bx1.text" = "Erdbeeren";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "MJZ-v0-eO3"; */
+"MJZ-v0-eO3.text" = "Label";
+
+/* Class = "UILabel"; text = "Mass"; ObjectID = "ULK-HO-jce"; */
+"ULK-HO-jce.text" = "Mass";
+
+/* Class = "UINavigationItem"; title = "Measurement Type"; ObjectID = "Vbq-0c-ubG"; */
+"Vbq-0c-ubG.title" = "Messart";
+
+/* Class = "UITabBarItem"; title = "Stock"; ObjectID = "W6t-nz-Hdc"; */
+"W6t-nz-Hdc.title" = "Inventar";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "X2J-Tj-xDI"; */
+"X2J-Tj-xDI.normalTitle" = "Button";
+
+/* Class = "UITableViewSection"; headerTitle = "Item"; ObjectID = "XYg-eH-TpD"; */
+"XYg-eH-TpD.headerTitle" = "Objekt";
+
+/* Class = "UILabel"; text = "Measurement Type"; ObjectID = "Xql-zg-ea6"; */
+"Xql-zg-ea6.text" = "Messart";
+
+/* Class = "UILabel"; text = "Current Stock"; ObjectID = "aUE-jC-nFU"; */
+"aUE-jC-nFU.text" = "Auf Lager";
+
+/* Class = "UITableViewSection"; headerTitle = "Stock"; ObjectID = "jWV-QQ-E9Q"; */
+"jWV-QQ-E9Q.headerTitle" = "Inventar";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mmY-cO-HOy"; */
+"mmY-cO-HOy.text" = "Label";
+
+/* Class = "UILabel"; text = "Mass"; ObjectID = "n5J-Zc-Mgg"; */
+"n5J-Zc-Mgg.text" = "Mass";
+
+/* Class = "UILabel"; text = "Stock Item Name"; ObjectID = "pRP-2w-lG9"; */
+"pRP-2w-lG9.text" = "Stock Item Name";

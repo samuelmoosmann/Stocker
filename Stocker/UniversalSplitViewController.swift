@@ -13,6 +13,7 @@ class UniversalSplitViewController: UISplitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         preferredDisplayMode = .allVisible
+        
         // Do any additional setup after loading the view.
     }
 

@@ -1,27 +1,29 @@
 //
-//  ShoppingListTableViewController.swift
+//  MeasurementUnitTableViewController.swift
 //  Stocker
 //
-//  Created by Samuel Moosmann on 21/06/2017.
+//  Created by Samuel Moosmann on 23/06/2017.
 //  Copyright © 2017 Samuel Moosmann. All rights reserved.
 //
 
 import UIKit
 
-class ShoppingListTableViewController: UITableViewController {
+class MeasurementUnitTableViewController: UITableViewController {
 
+    var measurementTypes: [MeasurementType] = []
+    var completionHandler: ((MeasurementType?) -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        measurementTypes.append(MeasurementType(unit: "UnitMass", title: NSLocalizedString("unitMass", comment: ""), iconImage: UIImage(named: "MeasurementTypeMassIcon")!))
+        measurementTypes.append(MeasurementType(unit: "UnitLength", title: NSLocalizedString("unitLength", comment: ""), iconImage: UIImage(named: "MeasurementTypeLengthIcon")!))
+        measurementTypes.append(MeasurementType(unit: "UnitVolume", title: NSLocalizedString("unitVolume", comment: ""), iconImage: UIImage(named: "MeasurementTypeVolumeIcon")!))
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,33 +33,38 @@ class ShoppingListTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 2
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return measurementTypes.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "shoppingListCell", for: indexPath)
-
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "measurementTypeCell", for: indexPath) as! MeasurementUnitTableViewCell
+        cell.measurementType = measurementTypes[indexPath.row]
+        cell.measurementTypeLabel.text = measurementTypes[indexPath.row].title
+        cell.measurementTypeImageView.image = measurementTypes[indexPath.row].iconImage
         return cell
     }
     
-
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
+    
+    // MARK: Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "unwindToDetail" {
+            let tableViewCell = sender as! MeasurementUnitTableViewCell
+            completionHandler?(tableViewCell.measurementType!)
+            
+        }
+    }
+    
+    
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

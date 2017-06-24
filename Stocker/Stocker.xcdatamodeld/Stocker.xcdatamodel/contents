@@ -4,20 +4,21 @@
         <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="shoppingListEntry" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShoppingListEntry" inverseName="item" inverseEntity="ShoppingListEntry" syncable="YES"/>
         <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="item" inverseEntity="Stock" syncable="YES"/>
     </entity>
     <entity name="ShoppingListEntry" representedClassName="ShoppingListEntry" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="measurement" optional="YES" attributeType="Decimal" minValueString="0" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" syncable="YES"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="shoppingListEntry" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="Stock" representedClassName="Stock" syncable="YES" codeGenerationType="class">
         <attribute name="value" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
         <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="stock" inverseEntity="Item" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Item" positionX="117" positionY="54" width="108" height="103"/>
+        <element name="Item" positionX="180" positionY="81" width="108" height="118"/>
+        <element name="ShoppingListEntry" positionX="178" positionY="299" width="155" height="88"/>
         <element name="Stock" positionX="-38" positionY="53" width="128" height="73"/>
-        <element name="ShoppingListEntry" positionX="115" positionY="189" width="155" height="88"/>
     </elements>
 </model>
