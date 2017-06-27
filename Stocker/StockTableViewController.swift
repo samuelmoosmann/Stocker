@@ -13,6 +13,7 @@ import Crashlytics
 class StockTableViewController: UITableViewController {
 
     var items: [Item] = []
+    var measurementTypes: [MeasurementType]?
     var managedContext: NSManagedObjectContext?
     
     override func viewDidLoad() {
@@ -98,7 +99,8 @@ class StockTableViewController: UITableViewController {
         let entity = NSEntityDescription.entity(forEntityName: "Item", in: managedContext!)!
         let item = Item(entity: entity, insertInto: managedContext)
 
-        item.name = "Vong Platzhalter her"
+        item.name = NSLocalizedString("Unnamed item", comment: "")
+        item.measurementType = measurementTypes?.first
         do {
             try managedContext!.save()
             items.append(item)
@@ -116,12 +118,17 @@ class StockTableViewController: UITableViewController {
             let stockDetailViewController = segue.destination as! StockDetailViewController
             let senderCell = sender as! StockTableViewCell
             stockDetailViewController.managedContext = managedContext
+            stockDetailViewController.measurementTypes = measurementTypes
             stockDetailViewController.fill(with: senderCell.item!)
             //stockDetailViewController.item = senderCell.item
         case "createItemSegue":
             let stockDetailViewController = segue.destination as! StockDetailViewController
             stockDetailViewController.managedContext = managedContext
-            stockDetailViewController.item = createBlankItem()
+            stockDetailViewController.measurementTypes = measurementTypes
+            //stockDetailViewController.item = createBlankItem()
+            stockDetailViewController.fill(with: createBlankItem()!)
+            items = fetchItems()!
+            tableView.reloadData()
         default:
             break
         }

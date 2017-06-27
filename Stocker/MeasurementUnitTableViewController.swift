@@ -10,14 +10,14 @@ import UIKit
 
 class MeasurementUnitTableViewController: UITableViewController {
 
-    var measurementTypes: [MeasurementType] = []
+    var measurementTypes: [MeasurementType]?
     var completionHandler: ((MeasurementType?) -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        measurementTypes.append(MeasurementType(unit: "UnitMass", title: NSLocalizedString("unitMass", comment: ""), iconImage: UIImage(named: "MeasurementTypeMassIcon")!))
+        /* measurementTypes.append(MeasurementType(unit: "UnitMass", title: NSLocalizedString("unitMass", comment: ""), iconImage: UIImage(named: "MeasurementTypeMassIcon")!))
         measurementTypes.append(MeasurementType(unit: "UnitLength", title: NSLocalizedString("unitLength", comment: ""), iconImage: UIImage(named: "MeasurementTypeLengthIcon")!))
-        measurementTypes.append(MeasurementType(unit: "UnitVolume", title: NSLocalizedString("unitVolume", comment: ""), iconImage: UIImage(named: "MeasurementTypeVolumeIcon")!))
+        measurementTypes.append(MeasurementType(unit: "UnitVolume", title: NSLocalizedString("unitVolume", comment: ""), iconImage: UIImage(named: "MeasurementTypeVolumeIcon")!))*/
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -35,15 +35,18 @@ class MeasurementUnitTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return measurementTypes.count
+        return measurementTypes!.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "measurementTypeCell", for: indexPath) as! MeasurementUnitTableViewCell
-        cell.measurementType = measurementTypes[indexPath.row]
-        cell.measurementTypeLabel.text = measurementTypes[indexPath.row].title
-        cell.measurementTypeImageView.image = measurementTypes[indexPath.row].iconImage
+        cell.measurementType = measurementTypes?[indexPath.row]
+        cell.measurementTypeLabel.text = measurementTypes?[indexPath.row].title
+        
+        if let icon = measurementTypes?[indexPath.row].icon {
+            cell.measurementTypeImageView.image = UIImage(data: Data(referencing: icon))
+        }
         return cell
     }
     

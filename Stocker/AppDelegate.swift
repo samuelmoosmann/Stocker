@@ -25,21 +25,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let stockTableViewController = navigationController.viewControllers.first as! StockTableViewController
         stockTableViewController.managedContext = persistentContainer.viewContext
         
-        // Initially setup available Measurement types
+        // Initially setup available measurement types
         
         var measurementTypes: [MeasurementType] = []
         
         // Setup
-        let fetchRequest = NSFetchRequest<Item>(entityName: "MeasurementType")
-        
+        let managedContext = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<MeasurementType>(entityName: "MeasurementType")
+        let entity = NSEntityDescription.entity(forEntityName: "MeasurementType", in: persistentContainer.viewContext)
         do {
-            items = try managedContext!.fetch(fetchRequest)
+            // Count existing measurement types
+            let measurementTypesCount = try persistentContainer.viewContext.count(for: fetchRequest)
+            if measurementTypesCount == 0 {
+                let unitMassType = MeasurementType(entity: entity!, insertInto: managedContext)
+                unitMassType.title = "Mass"
+                unitMassType.type = "unitMass"
+                unitMassType.icon = NSData(data: UIImagePNGRepresentation(UIImage(named: "MeasurementTypeMassIcon")!)!)
+                let unitLengthType = MeasurementType(entity: entity!, insertInto: managedContext)
+                unitLengthType.title = "Length"
+                unitLengthType.type = "unitLength"
+                unitLengthType.icon = NSData(data: UIImagePNGRepresentation(UIImage(named: "MeasurementTypeLengthIcon")!)!)
+                
+                try managedContext.save()
+            }
+            // Fetch measurement types
+            measurementTypes = try managedContext.fetch(fetchRequest)
+            
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
             CLSLogv("Could not fetch. %@", getVaList([error.userInfo]))
             
         }
         
+        stockTableViewController.measurementTypes = measurementTypes
 
         return true
     }

@@ -3,7 +3,7 @@
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="measurementType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MeasurementType" inverseName="item" inverseEntity="MeasurementType" syncable="YES"/>
+        <relationship name="measurementType" maxCount="1" deletionRule="Nullify" destinationEntity="MeasurementType" inverseName="item" inverseEntity="MeasurementType" syncable="YES"/>
         <relationship name="shoppingListEntry" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShoppingListEntry" inverseName="item" inverseEntity="ShoppingListEntry" syncable="YES"/>
         <relationship name="stock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Stock" inverseName="item" inverseEntity="Stock" syncable="YES"/>
     </entity>
@@ -24,8 +24,8 @@
     </entity>
     <elements>
         <element name="Item" positionX="207" positionY="63" width="108" height="118"/>
+        <element name="MeasurementType" positionX="-27" positionY="171" width="128" height="103"/>
         <element name="ShoppingListEntry" positionX="178" positionY="299" width="155" height="88"/>
         <element name="Stock" positionX="-38" positionY="53" width="128" height="73"/>
-        <element name="MeasurementType" positionX="-27" positionY="171" width="128" height="103"/>
     </elements>
 </model>

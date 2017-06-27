@@ -12,6 +12,16 @@ import Crashlytics
 
 class StockDetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: Injected Data
+    var managedContext: NSManagedObjectContext?
+    var item: Item?
+    var measurementTypes: [MeasurementType]?
+    
+    // MARK: State data
+    var measurementType: MeasurementType?
+    
+    
+    // MARK: UI Variables
     @IBOutlet var stockMeasurementFieldToolbar: UIToolbar!
     @IBOutlet weak var fieldToolbarDoneButton: UIBarButtonItem!
     
@@ -19,7 +29,6 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     
     @IBOutlet weak var itemNameTextField: DisguisedTextField!
     
-    @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet var itemImageGestureRecognizer: UITapGestureRecognizer!
     
@@ -28,11 +37,6 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var stockMeasurementField: UITextField!
     
     let imagePickerController = UIImagePickerController()
-    
-    var measurementType: MeasurementType?
-    
-    var managedContext: NSManagedObjectContext?
-    var item: Item?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +62,7 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
         
         itemNameTextField.text = item?.name
         editButton.title = NSLocalizedString("Edit", comment: "")
-        stockMeasurementTypeCell.detailTextLabel?.text = item?.measurementType
+        stockMeasurementTypeCell.detailTextLabel?.text = NSLocalizedString((item?.measurementType?.title)!, comment: "")
     }
     
     
@@ -95,11 +99,12 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "measurementUnitSegue" {
             let measurementUnitTableViewController = segue.destination as! MeasurementUnitTableViewController
+            measurementUnitTableViewController.measurementTypes = measurementTypes!
             measurementUnitTableViewController.completionHandler = {(c1) in
                 self.measurementType = c1
                 print(self.item?.measurementType)
                 print(c1?.title as String!)
-                self.item?.measurementType = c1?.title
+                self.item?.measurementType = c1
                 print(self.item?.measurementType)
                 self.stockMeasurementTypeCell.detailTextLabel?.text = c1?.title
                 self.save()
