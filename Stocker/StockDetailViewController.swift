@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreData
+import Crashlytics
 
 class StockDetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -25,8 +27,12 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     
     var measurementType: MeasurementType?
     
+    var managedContext: NSManagedObjectContext?
+    var item: Item?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Reversing hidden navigation bar from shopping list
         navigationController?.setNavigationBarHidden(false, animated: true)
         
@@ -38,7 +44,13 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
         // Adding toolbar for editing stock value
         stockMeasurementField.inputAccessoryView = stockMeasurementFieldToolbar!
         
-        // Do any additional setup after loading the view.
+        self.navigationItem.rightBarButtonItem = self.editButtonItem        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(item?.name)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,10 +69,19 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
             let measurementUnitTableViewController = segue.destination as! MeasurementUnitTableViewController
             measurementUnitTableViewController.completionHandler = {(c1) in
                 self.measurementType = c1
+                print(self.item?.measurementType)
+                print(c1?.title as String!)
+                self.item?.measurementType = c1?.title
+                print(self.item?.measurementType)
                 self.stockMeasurementTypeLabel.detailTextLabel?.text = c1?.title
+                self.save()
                 
             }
         }
+    }
+    
+    func fill(with item: Item){
+        
     }
 
     func imagePickerTouched(){
@@ -80,9 +101,21 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     // MARK: UIImagePickerControllerDelegate
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
-        itemImageView.image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        itemImageView.image = image
+        item?.image = NSData(data: UIImageJPEGRepresentation(image, 1)!)
+        
+        save()
     }
 
+    func save() {
+        do {
+            try managedContext!.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+            CLSLogv("Could not save. %@", getVaList([error.userInfo]))
+        }
+    }
     
     /*
     // MARK: - Navigation

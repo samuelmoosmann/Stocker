@@ -112,7 +112,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" image="Mass" translatesAutoresizingMaskIntoConstraints="NO" id="fgI-Ut-hfU">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="751" image="ItemImagePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="fgI-Ut-hfU" customClass="StockTableImageView" customModule="Stocker" customModuleProvider="target">
                                             <rect key="frame" x="8" y="8" width="44" height="44"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="fgI-Ut-hfU" secondAttribute="height" multiplier="1:1" id="fqE-cA-eCf"/>
@@ -172,8 +172,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="infoLabel" destination="3Wf-1Y-Mu5" id="P91-fO-OeM"/>
+                                    <outlet property="itemImageView" destination="fgI-Ut-hfU" id="sOy-eH-fhB"/>
                                     <outlet property="itemNameLabel" destination="pRP-2w-lG9" id="0b5-9c-oWB"/>
-                                    <segue destination="GMf-t5-W8o" kind="show" id="xvx-Li-WH8"/>
+                                    <outlet property="massLabel" destination="n5J-Zc-Mgg" id="qTD-ST-k8k"/>
+                                    <segue destination="GMf-t5-W8o" kind="show" identifier="itemDetailSegue" id="xvx-Li-WH8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -185,7 +188,7 @@
                     <navigationItem key="navigationItem" id="ScW-Mz-HYE">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="kOJ-kA-5x9">
                             <connections>
-                                <segue destination="GMf-t5-W8o" kind="show" id="3an-eO-Ak2"/>
+                                <segue destination="GMf-t5-W8o" kind="show" identifier="createItemSegue" id="3an-eO-Ak2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -218,7 +221,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageMissing" translatesAutoresizingMaskIntoConstraints="NO" id="0Ed-8W-kMv">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageMissing" translatesAutoresizingMaskIntoConstraints="NO" id="0Ed-8W-kMv">
                                                     <rect key="frame" x="8" y="8" width="81" height="81"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -426,6 +429,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.0" green="0.62745098039215685" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="mrU-Tk-Ofq" kind="relationship" relationship="viewControllers" id="EZc-6y-fDO"/>
@@ -458,6 +466,7 @@
     </scenes>
     <resources>
         <image name="ImageMissing" width="113" height="113"/>
+        <image name="ItemImagePlaceholder" width="44" height="44"/>
         <image name="Mass" width="14" height="14"/>
         <image name="ShoppingListChecked" width="31" height="31"/>
         <image name="ShoppingListTabBarIcon" width="50" height="50"/>
@@ -468,4 +477,5 @@
     <inferredMetricsTieBreakers>
         <segue reference="3an-eO-Ak2"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.62745098039215685" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
 </document>

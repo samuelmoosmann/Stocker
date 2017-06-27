@@ -8,10 +8,12 @@
 
 import UIKit
 import CoreData
+import Crashlytics
 
 class StockTableViewController: UITableViewController {
 
-    var items: [NSManagedObject] = []
+    var items: [Item] = []
+    var managedContext: NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +22,8 @@ class StockTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        items = fetchItems()!
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,15 +31,9 @@ class StockTableViewController: UITableViewController {
         
         
         
-        // Setup
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        let managedContext = appDelegate.persistentContainer.viewContext
+        //let entity = NSEntityDescription.entity(forEntityName: "Item", in: managedContext)!
         
-        let entity = NSEntityDescription.entity(forEntityName: "Item", in: managedContext)!
-        
-        let item = NSManagedObject(entity: entity, insertInto: managedContext)
+        /* let item = NSManagedObject(entity: entity, insertInto: managedContext)
         
         item.setValue("Testobjekt", forKeyPath: "name")
         
@@ -45,16 +43,9 @@ class StockTableViewController: UITableViewController {
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
+        */
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Item")
         
-        do {
-            items = try managedContext.fetch(fetchRequest)
-        } catch let error as NSError {
-            print("Could not fetch. \(error), \(error.userInfo)")
-        }
-        
-        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,19 +64,87 @@ class StockTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "stockTableViewCell", for: indexPath) as! StockTableViewCell
         let item = items[indexPath.row]
-        cell.itemNameLabel.text = item.value(forKey: "name") as? String
-
+        //cell.itemNameLabel.text = item.value(forKey: "name") as? String
+        
+        // FIXME: Should be set by cell with item
+        cell.fill(with: item)
+        
+        
+        cell.item = item
+        print(item.objectID)
+        print(item.measurementType)
+        print(item.image)
         return cell
     }
     
+    func fetchItems() -> [Item]? {
+        var items: [Item] = []
+        
+        // Setup
+        let fetchRequest = NSFetchRequest<Item>(entityName: "Item")
+        
+        do {
+            items = try managedContext!.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            CLSLogv("Could not fetch. %@", getVaList([error.userInfo]))
+            
+        }
+        
+        return items
+    }
+    
+    func createBlankItem() -> Item? {
+        let entity = NSEntityDescription.entity(forEntityName: "Item", in: managedContext!)!
+        let item = Item(entity: entity, insertInto: managedContext)
 
-    /*
+        item.name = "Vong Platzhalter her"
+        do {
+            try managedContext!.save()
+            items.append(item)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+            CLSLogv("Could not save. %@", getVaList([error.userInfo]))
+        }
+        
+        return item
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier! {
+        case "itemDetailSegue":
+            let stockDetailViewController = segue.destination as! StockDetailViewController
+            let senderCell = sender as! StockTableViewCell
+            stockDetailViewController.managedContext = managedContext
+            stockDetailViewController.item = senderCell.item
+        case "createItemSegue":
+            let stockDetailViewController = segue.destination as! StockDetailViewController
+            stockDetailViewController.managedContext = managedContext
+            stockDetailViewController.item = createBlankItem()
+        default:
+            break
+        }
+    }
+
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let increaseButton = UITableViewRowAction(style: .default, title: "Increase", handler: { action, index in
+            
+        })
+        increaseButton.backgroundColor = .green
+        
+        let decreaseButton = UITableViewRowAction(style: .normal, title: "Decrease", handler: { action, index in
+            
+        })
+        decreaseButton.backgroundColor = .red
+        
+        return [increaseButton, decreaseButton]
+    }
 
     /*
     // Override to support editing the table view.
