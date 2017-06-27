@@ -15,6 +15,7 @@
 		BB35697F1EFC589C00B083AB /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35697E1EFC589C00B083AB /* ShoppingListTableViewCell.swift */; };
 		BB673F0E1EFADD6900333A90 /* StockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB673F0D1EFADD6900333A90 /* StockTableViewCell.swift */; };
 		BB680DB11F01C88000B55F17 /* StockTableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB680DB01F01C88000B55F17 /* StockTableImageView.swift */; };
+		BB6E7F671F029E4C00C6ED51 /* DisguisedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6E7F661F029E4C00C6ED51 /* DisguisedTextField.swift */; };
 		BB761B221EFD0A0600B9B832 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB761B211EFD0A0600B9B832 /* NotificationCenter.framework */; };
 		BB761B251EFD0A0600B9B832 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB761B241EFD0A0600B9B832 /* TodayViewController.swift */; };
 		BB761B281EFD0A0600B9B832 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB761B261EFD0A0600B9B832 /* MainInterface.storyboard */; };
@@ -30,7 +31,7 @@
 		BBB875421EFADC7B00E64BD7 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB875411EFADC7B00E64BD7 /* ShoppingListTableViewController.swift */; };
 		BBB875441EFADCD900E64BD7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BBB875431EFADCD900E64BD7 /* README.md */; };
 		BBDB0ABB1EFE628700C2EAEA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBDB0ABD1EFE628700C2EAEA /* Localizable.strings */; };
-		BBDB0AC01EFE657000C2EAEA /* MeasurementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDB0ABF1EFE657000C2EAEA /* MeasurementType.swift */; };
+		BBDB0AC01EFE657000C2EAEA /* LegacyMeasurementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDB0ABF1EFE657000C2EAEA /* LegacyMeasurementType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		BB35697E1EFC589C00B083AB /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		BB673F0D1EFADD6900333A90 /* StockTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableViewCell.swift; sourceTree = "<group>"; };
 		BB680DB01F01C88000B55F17 /* StockTableImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockTableImageView.swift; sourceTree = "<group>"; };
+		BB6E7F661F029E4C00C6ED51 /* DisguisedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisguisedTextField.swift; sourceTree = "<group>"; };
 		BB761B1F1EFD0A0600B9B832 /* Items Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Items Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB761B211EFD0A0600B9B832 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		BB761B241EFD0A0600B9B832 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
@@ -91,7 +93,7 @@
 		BBDB0AB81EFE618B00C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		BBDB0ABC1EFE628700C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BBDB0ABE1EFE629500C2EAEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BBDB0ABF1EFE657000C2EAEA /* MeasurementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementType.swift; sourceTree = "<group>"; };
+		BBDB0ABF1EFE657000C2EAEA /* LegacyMeasurementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyMeasurementType.swift; sourceTree = "<group>"; };
 		BEAD0A1B955348AAC04D87E4 /* Pods_Items_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Items_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28224854C24DF9B432DA4C0 /* Pods_Stocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DC5E993CCDD3C8907017A1 /* Pods-Items Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Items Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Items Widget/Pods-Items Widget.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		BB35697A1EFC541500B083AB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				BB6E7F661F029E4C00C6ED51 /* DisguisedTextField.swift */,
 				BB35697B1EFC543000B083AB /* UniversalSplitViewController.swift */,
 			);
 			name = Utilities;
@@ -156,7 +159,7 @@
 		BB6E46971EFE7702008539A4 /* Data Types */ = {
 			isa = PBXGroup;
 			children = (
-				BBDB0ABF1EFE657000C2EAEA /* MeasurementType.swift */,
+				BBDB0ABF1EFE657000C2EAEA /* LegacyMeasurementType.swift */,
 			);
 			name = "Data Types";
 			sourceTree = "<group>";
@@ -476,11 +479,12 @@
 			files = (
 				BBB875401EFADC5700E64BD7 /* StockDetailViewController.swift in Sources */,
 				BBB8753E1EFADC1700E64BD7 /* StockTableViewController.swift in Sources */,
-				BBDB0AC01EFE657000C2EAEA /* MeasurementType.swift in Sources */,
+				BBDB0AC01EFE657000C2EAEA /* LegacyMeasurementType.swift in Sources */,
 				BB680DB11F01C88000B55F17 /* StockTableImageView.swift in Sources */,
 				BB3569771EFC131200B083AB /* Stocker.xcdatamodeld in Sources */,
 				BBB875441EFADCD900E64BD7 /* README.md in Sources */,
 				BB761B321EFD0E5A00B9B832 /* MeasurementUnitTableViewController.swift in Sources */,
+				BB6E7F671F029E4C00C6ED51 /* DisguisedTextField.swift in Sources */,
 				BBB8752C1EFADA6600E64BD7 /* AppDelegate.swift in Sources */,
 				BB35697C1EFC543000B083AB /* UniversalSplitViewController.swift in Sources */,
 				BB35697F1EFC589C00B083AB /* ShoppingListTableViewCell.swift in Sources */,

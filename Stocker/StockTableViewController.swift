@@ -116,7 +116,8 @@ class StockTableViewController: UITableViewController {
             let stockDetailViewController = segue.destination as! StockDetailViewController
             let senderCell = sender as! StockTableViewCell
             stockDetailViewController.managedContext = managedContext
-            stockDetailViewController.item = senderCell.item
+            stockDetailViewController.fill(with: senderCell.item!)
+            //stockDetailViewController.item = senderCell.item
         case "createItemSegue":
             let stockDetailViewController = segue.destination as! StockDetailViewController
             stockDetailViewController.managedContext = managedContext
@@ -133,15 +134,15 @@ class StockTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let increaseButton = UITableViewRowAction(style: .default, title: "Increase", handler: { action, index in
+        let increaseButton = UITableViewRowAction(style: .default, title: " +1 ", handler: { action, index in
             
         })
-        increaseButton.backgroundColor = .green
+        increaseButton.backgroundColor = UIColor(red:0.00, green:0.86, blue:0.85, alpha:1.0)
         
-        let decreaseButton = UITableViewRowAction(style: .normal, title: "Decrease", handler: { action, index in
+        let decreaseButton = UITableViewRowAction(style: .normal, title: " -1 ", handler: { action, index in
             
         })
-        decreaseButton.backgroundColor = .red
+        decreaseButton.backgroundColor = UIColor(red:0.00, green:0.63, blue:0.62, alpha:1.0)
         
         return [increaseButton, decreaseButton]
     }

@@ -15,11 +15,15 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet var stockMeasurementFieldToolbar: UIToolbar!
     @IBOutlet weak var fieldToolbarDoneButton: UIBarButtonItem!
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
+    @IBOutlet weak var itemNameTextField: DisguisedTextField!
+    
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet var itemImageGestureRecognizer: UITapGestureRecognizer!
     
-    @IBOutlet weak var stockMeasurementTypeLabel: UITableViewCell!
+    @IBOutlet weak var stockMeasurementTypeCell: UITableViewCell!
     @IBOutlet weak var stockMeasurementUnitLabel: UILabel!
     @IBOutlet weak var stockMeasurementField: UITextField!
     
@@ -44,8 +48,19 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
         // Adding toolbar for editing stock value
         stockMeasurementField.inputAccessoryView = stockMeasurementFieldToolbar!
         
-        self.navigationItem.rightBarButtonItem = self.editButtonItem        
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        // Filling
+        
+        if let itemImage = item?.image {
+            itemImageView.image = UIImage(data: Data(referencing: itemImage))
+        }
+        
+        itemNameTextField.text = item?.name
+        editButton.title = NSLocalizedString("Edit", comment: "")
+        stockMeasurementTypeCell.detailTextLabel?.text = item?.measurementType
     }
+    
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -56,6 +71,19 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        if editButton.title == NSLocalizedString("Edit", comment: "") {
+            editButton.title = NSLocalizedString("Done", comment: "")
+            itemNameTextField.editable = true
+        }
+        else {
+            editButton.title = NSLocalizedString("Edit", comment: "")
+            itemNameTextField.editable = false
+        }
+        
+        
     }
     
     // MARK: Segue Handling
@@ -73,7 +101,7 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
                 print(c1?.title as String!)
                 self.item?.measurementType = c1?.title
                 print(self.item?.measurementType)
-                self.stockMeasurementTypeLabel.detailTextLabel?.text = c1?.title
+                self.stockMeasurementTypeCell.detailTextLabel?.text = c1?.title
                 self.save()
                 
             }
@@ -81,7 +109,8 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     }
     
     func fill(with item: Item){
-        
+        self.item = item
+
     }
 
     func imagePickerTouched(){

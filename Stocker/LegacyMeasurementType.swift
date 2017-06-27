@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MeasurementType {
+class LegacyMeasurementType {
     // FIXME: Change to generics, or any other more generic approach
     let unit: String
     let title: String

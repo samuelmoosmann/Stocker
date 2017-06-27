@@ -24,6 +24,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = splitViewController.viewControllers.first as! UINavigationController
         let stockTableViewController = navigationController.viewControllers.first as! StockTableViewController
         stockTableViewController.managedContext = persistentContainer.viewContext
+        
+        // Initially setup available Measurement types
+        
+        var measurementTypes: [MeasurementType] = []
+        
+        // Setup
+        let fetchRequest = NSFetchRequest<Item>(entityName: "MeasurementType")
+        
+        do {
+            items = try managedContext!.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            CLSLogv("Could not fetch. %@", getVaList([error.userInfo]))
+            
+        }
+        
+
         return true
     }
 

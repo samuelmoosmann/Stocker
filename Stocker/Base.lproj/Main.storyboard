@@ -215,13 +215,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MJZ-v0-eO3">
-                                                    <rect key="frame" x="97" y="8" width="270" height="33.5"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageMissing" translatesAutoresizingMaskIntoConstraints="NO" id="0Ed-8W-kMv">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageMissing" translatesAutoresizingMaskIntoConstraints="NO" id="0Ed-8W-kMv" customClass="StockTableImageView" customModule="Stocker" customModuleProvider="target">
                                                     <rect key="frame" x="8" y="8" width="81" height="81"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
@@ -231,13 +225,19 @@
                                                         <outletCollection property="gestureRecognizers" destination="nD6-fW-WC9" appends="YES" id="fb6-IE-aZh"/>
                                                     </connections>
                                                 </imageView>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Item Name" borderStyle="roundedRect" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fck-Xi-yjx" customClass="DisguisedTextField" customModule="Stocker" customModuleProvider="target">
+                                                    <rect key="frame" x="97" y="8" width="270" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="fck-Xi-yjx" firstAttribute="leading" secondItem="0Ed-8W-kMv" secondAttribute="trailing" constant="8" id="7ZR-iZ-rsX"/>
                                                 <constraint firstItem="0Ed-8W-kMv" firstAttribute="leading" secondItem="rfr-Jd-d62" secondAttribute="leadingMargin" id="G2m-cZ-u8P"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="0Ed-8W-kMv" secondAttribute="bottom" id="NbE-aW-nod"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="MJZ-v0-eO3" secondAttribute="trailing" id="h0F-rx-E0b"/>
-                                                <constraint firstItem="MJZ-v0-eO3" firstAttribute="top" secondItem="rfr-Jd-d62" secondAttribute="topMargin" id="qt0-2U-s8I"/>
-                                                <constraint firstItem="MJZ-v0-eO3" firstAttribute="leading" secondItem="0Ed-8W-kMv" secondAttribute="trailing" constant="8" id="t2y-wx-nze"/>
+                                                <constraint firstItem="fck-Xi-yjx" firstAttribute="top" secondItem="rfr-Jd-d62" secondAttribute="topMargin" id="WCS-5V-lNo"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="fck-Xi-yjx" secondAttribute="trailing" id="olR-Ph-uoa"/>
                                                 <constraint firstItem="0Ed-8W-kMv" firstAttribute="top" secondItem="rfr-Jd-d62" secondAttribute="topMargin" id="xSg-Ly-zlz"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -318,14 +318,22 @@
                             <outlet property="delegate" destination="GMf-t5-W8o" id="7PR-qG-Eab"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="6QG-sN-3oD">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" style="plain" id="IdC-46-PBF">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="GMf-t5-W8o" id="mmE-HJ-sAa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="editButton" destination="IdC-46-PBF" id="MhI-SR-RbM"/>
                         <outlet property="fieldToolbarDoneButton" destination="FX8-ib-61w" id="3gT-Hx-Oqj"/>
                         <outlet property="itemImageGestureRecognizer" destination="nD6-fW-WC9" id="zzI-Jy-SXp"/>
                         <outlet property="itemImageView" destination="0Ed-8W-kMv" id="N9o-8Z-5xR"/>
-                        <outlet property="itemNameLabel" destination="MJZ-v0-eO3" id="KgZ-BZ-HEd"/>
+                        <outlet property="itemNameTextField" destination="fck-Xi-yjx" id="83D-QA-Uvi"/>
                         <outlet property="stockMeasurementField" destination="nWa-9l-g3q" id="aXE-jW-daw"/>
                         <outlet property="stockMeasurementFieldToolbar" destination="kTd-UF-8n0" id="uHL-5I-oqF"/>
-                        <outlet property="stockMeasurementTypeLabel" destination="ovM-ZI-Hav" id="aqL-2W-A6M"/>
+                        <outlet property="stockMeasurementTypeCell" destination="ovM-ZI-Hav" id="YaE-3L-BSA"/>
                         <outlet property="stockMeasurementUnitLabel" destination="2yX-dI-wMJ" id="H5v-bo-1mz"/>
                     </connections>
                 </tableViewController>
