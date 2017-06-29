@@ -9,15 +9,18 @@
 import UIKit
 import CoreData
 import Crashlytics
+import Charts
 
-class StockDetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class StockDetailViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, ChartViewDelegate {
+    
+    @IBOutlet var barChartView: HorizontalBarChartView!
     
     // MARK: Injected Data
     var managedContext: NSManagedObjectContext?
     var item: Item?
     var measurementTypes: [MeasurementType]?
     
-    // MARK: State data
+    // MARK: State data, to be deleted
     var measurementType: MeasurementType?
     
     
@@ -28,13 +31,17 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     @IBOutlet weak var itemNameTextField: DisguisedTextField!
-    
     @IBOutlet weak var itemImageView: UIImageView!
-    @IBOutlet var itemImageGestureRecognizer: UITapGestureRecognizer!
+    @IBOutlet      var itemImageGestureRecognizer: UITapGestureRecognizer!
     
     @IBOutlet weak var stockMeasurementTypeCell: UITableViewCell!
     @IBOutlet weak var stockMeasurementUnitLabel: UILabel!
     @IBOutlet weak var stockMeasurementField: UITextField!
+    
+    @IBOutlet weak var stockLowerThresholdTextField: UITextField!
+    @IBOutlet weak var stockUpToTextField: UITextField!
+    
+    
     
     let imagePickerController = UIImagePickerController()
     
@@ -51,11 +58,11 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
         
         // Adding toolbar for editing stock value
         stockMeasurementField.inputAccessoryView = stockMeasurementFieldToolbar!
+        stockUpToTextField.inputAccessoryView = stockMeasurementFieldToolbar!
+        stockLowerThresholdTextField.inputAccessoryView = stockMeasurementFieldToolbar!
         
-        //self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         // Filling
-        
         if let itemImage = item?.image {
             itemImageView.image = UIImage(data: Data(referencing: itemImage))
         }
@@ -63,12 +70,18 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
         itemNameTextField.text = item?.name
         editButton.title = NSLocalizedString("Edit", comment: "")
         stockMeasurementTypeCell.detailTextLabel?.text = NSLocalizedString((item?.measurementType?.title)!, comment: "")
+        
+        // Graph Detail
+        barChartView.delegate = self
+        //let barChartData = [BarChartDataEntry(x: 1, y: Double((item?.stock?.value)!))]
+        
     }
     
     
     
+    
+    
     override func viewDidAppear(_ animated: Bool) {
-        print(item?.name)
         
     }
 
@@ -81,10 +94,14 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
         if editButton.title == NSLocalizedString("Edit", comment: "") {
             editButton.title = NSLocalizedString("Done", comment: "")
             itemNameTextField.editable = true
+            itemNameTextField.becomeFirstResponder()
         }
         else {
             editButton.title = NSLocalizedString("Edit", comment: "")
             itemNameTextField.editable = false
+            itemNameTextField.resignFirstResponder()
+            item?.name = itemNameTextField.text
+            save()
         }
         
         
@@ -100,15 +117,11 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
         if segue.identifier == "measurementUnitSegue" {
             let measurementUnitTableViewController = segue.destination as! MeasurementUnitTableViewController
             measurementUnitTableViewController.measurementTypes = measurementTypes!
-            measurementUnitTableViewController.completionHandler = {(c1) in
-                self.measurementType = c1
-                print(self.item?.measurementType)
-                print(c1?.title as String!)
-                self.item?.measurementType = c1
-                print(self.item?.measurementType)
-                self.stockMeasurementTypeCell.detailTextLabel?.text = c1?.title
+            measurementUnitTableViewController.completionHandler = {(retrievedMeasurementType) in
+                self.measurementType = retrievedMeasurementType
+                self.item?.measurementType = retrievedMeasurementType
+                self.stockMeasurementTypeCell.detailTextLabel?.text = NSLocalizedString((retrievedMeasurementType?.title)!, comment: "")
                 self.save()
-                
             }
         }
     }
@@ -119,15 +132,34 @@ class StockDetailViewController: UITableViewController, UIImagePickerControllerD
     }
 
     func imagePickerTouched(){
-        imagePickerController.delegate = self
-        imagePickerController.sourceType = .photoLibrary
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cameraAlertAction = UIAlertAction(title: NSLocalizedString("Take Photo", comment: ""), style: .default, handler: {(action) in
+            self.imagePickerController.delegate = self
+            self.imagePickerController.sourceType = .camera
+            
+            self.present(self.imagePickerController, animated: true, completion: nil)
+            
+        })
+        alertController.addAction(cameraAlertAction)
+        let choosePhotoAlertAction = UIAlertAction(title: NSLocalizedString("Choose Photo", comment: ""), style: .default, handler: {(action) in
+            self.imagePickerController.delegate = self
+            self.imagePickerController.sourceType = .photoLibrary
+            
+            self.present(self.imagePickerController, animated: true, completion: nil)
+        })
+        alertController.addAction(choosePhotoAlertAction)
+        let cancelAlertAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: {(action) in
+            self.dismiss(animated: true, completion: nil)
+        })
+        alertController.addAction(cancelAlertAction)
+        present(alertController, animated: true, completion: nil)
         
-        present(imagePickerController, animated: true, completion: nil)
     }
     
     // MARK: Toolbar Actions
     @IBAction func toolbarDoneButtonPressed(_ sender: Any) {
         stockMeasurementField.resignFirstResponder()
+        
     }
     
     

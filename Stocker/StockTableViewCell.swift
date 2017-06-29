@@ -12,8 +12,10 @@ class StockTableViewCell: UITableViewCell {
 
     @IBOutlet weak var itemImageView: UIImageView!
     @IBOutlet weak var itemNameLabel: UILabel!
-    @IBOutlet weak var massLabel: UILabel!
+    @IBOutlet weak var stockLabel: UILabel!
+    @IBOutlet weak var measurementTypeIcon: UIImageView!
     @IBOutlet weak var infoLabel: UILabel!
+    @IBOutlet weak var infoIcon: UIImageView!
     
     var item: Item?
     
@@ -31,11 +33,20 @@ class StockTableViewCell: UITableViewCell {
     func fill(with item: Item){
         self.item = item
         itemNameLabel.text = item.name
+        measurementTypeIcon.image = UIImage(data: Data(referencing: (item.measurementType?.icon)!))
         if let itemImage = item.image {
             itemImageView.image = UIImage(data: Data(referencing: itemImage))
         }
         else {
             itemImageView.image = UIImage(named: "ItemImagePlaceholder")
+        }
+        if let stockValue = item.stock?.value {
+            stockLabel.text = "\(stockValue)"
+        }
+        else {
+            infoLabel.isHidden = false
+            infoIcon.isHidden = false
+            infoLabel.text = NSLocalizedString("Stock empty", comment: "")
         }
     }
 

@@ -11,7 +11,7 @@
         <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" attributeType="String" syncable="YES"/>
-        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="measurementType" inverseEntity="Item" syncable="YES"/>
+        <relationship name="item" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="measurementType" inverseEntity="Item" syncable="YES"/>
     </entity>
     <entity name="ShoppingListEntry" representedClassName="ShoppingListEntry" syncable="YES" codeGenerationType="class">
         <attribute name="isDone" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -26,6 +26,6 @@
         <element name="Item" positionX="207" positionY="63" width="108" height="118"/>
         <element name="MeasurementType" positionX="-27" positionY="171" width="128" height="103"/>
         <element name="ShoppingListEntry" positionX="178" positionY="299" width="155" height="88"/>
-        <element name="Stock" positionX="-38" positionY="53" width="128" height="73"/>
+        <element name="Stock" positionX="-90" positionY="35" width="128" height="73"/>
     </elements>
 </model>

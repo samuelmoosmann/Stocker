@@ -18,34 +18,20 @@ class StockTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    
         items = fetchItems()!
         tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let selectedRow = tableView.indexPathForSelectedRow
         super.viewWillAppear(animated)
-        
-        
-        
-        //let entity = NSEntityDescription.entity(forEntityName: "Item", in: managedContext)!
-        
-        /* let item = NSManagedObject(entity: entity, insertInto: managedContext)
-        
-        item.setValue("Testobjekt", forKeyPath: "name")
-        
-        do {
-            try managedContext.save()
-            items.append(item)
-        } catch let error as NSError {
-            print("Could not save. \(error), \(error.userInfo)")
+        if selectedRow != nil {
+            tableView.reloadRows(at: [selectedRow!], with: .fade)
         }
-        */
-        
+        else {
+            tableView.reloadData()
+        }
         
     }
 
@@ -72,9 +58,6 @@ class StockTableViewController: UITableViewController {
         
         
         cell.item = item
-        print(item.objectID)
-        print(item.measurementType)
-        print(item.image)
         return cell
     }
     
@@ -101,6 +84,7 @@ class StockTableViewController: UITableViewController {
 
         item.name = NSLocalizedString("Unnamed item", comment: "")
         item.measurementType = measurementTypes?.first
+        print(item.measurementType?.title)
         do {
             try managedContext!.save()
             items.append(item)

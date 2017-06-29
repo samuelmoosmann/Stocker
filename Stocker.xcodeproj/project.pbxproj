@@ -29,9 +29,7 @@
 		BBB8753E1EFADC1700E64BD7 /* StockTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB8753D1EFADC1700E64BD7 /* StockTableViewController.swift */; };
 		BBB875401EFADC5700E64BD7 /* StockDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB8753F1EFADC5700E64BD7 /* StockDetailViewController.swift */; };
 		BBB875421EFADC7B00E64BD7 /* ShoppingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB875411EFADC7B00E64BD7 /* ShoppingListTableViewController.swift */; };
-		BBB875441EFADCD900E64BD7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BBB875431EFADCD900E64BD7 /* README.md */; };
 		BBDB0ABB1EFE628700C2EAEA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BBDB0ABD1EFE628700C2EAEA /* Localizable.strings */; };
-		BBDB0AC01EFE657000C2EAEA /* LegacyMeasurementType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDB0ABF1EFE657000C2EAEA /* LegacyMeasurementType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,7 +91,6 @@
 		BBDB0AB81EFE618B00C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/MainInterface.strings; sourceTree = "<group>"; };
 		BBDB0ABC1EFE628700C2EAEA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BBDB0ABE1EFE629500C2EAEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
-		BBDB0ABF1EFE657000C2EAEA /* LegacyMeasurementType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegacyMeasurementType.swift; sourceTree = "<group>"; };
 		BEAD0A1B955348AAC04D87E4 /* Pods_Items_Widget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Items_Widget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28224854C24DF9B432DA4C0 /* Pods_Stocker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Stocker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4DC5E993CCDD3C8907017A1 /* Pods-Items Widget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Items Widget.release.xcconfig"; path = "Pods/Target Support Files/Pods-Items Widget/Pods-Items Widget.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,7 +156,6 @@
 		BB6E46971EFE7702008539A4 /* Data Types */ = {
 			isa = PBXGroup;
 			children = (
-				BBDB0ABF1EFE657000C2EAEA /* LegacyMeasurementType.swift */,
 			);
 			name = "Data Types";
 			sourceTree = "<group>";
@@ -479,10 +475,8 @@
 			files = (
 				BBB875401EFADC5700E64BD7 /* StockDetailViewController.swift in Sources */,
 				BBB8753E1EFADC1700E64BD7 /* StockTableViewController.swift in Sources */,
-				BBDB0AC01EFE657000C2EAEA /* LegacyMeasurementType.swift in Sources */,
 				BB680DB11F01C88000B55F17 /* StockTableImageView.swift in Sources */,
 				BB3569771EFC131200B083AB /* Stocker.xcdatamodeld in Sources */,
-				BBB875441EFADCD900E64BD7 /* README.md in Sources */,
 				BB761B321EFD0E5A00B9B832 /* MeasurementUnitTableViewController.swift in Sources */,
 				BB6E7F671F029E4C00C6ED51 /* DisguisedTextField.swift in Sources */,
 				BBB8752C1EFADA6600E64BD7 /* AppDelegate.swift in Sources */,
